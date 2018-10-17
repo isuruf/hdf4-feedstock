@@ -7,6 +7,9 @@ unset CFLAGS
 unset LDFLAGS
 unset CPPFLAGS
 
+export CPPFLAGS="-I${PREFIX}/include"
+export LDFLAGS="-L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
+
 # The --enable-silent-rules is needed because Travis CI dies on the long output from this build.
 ./configure --prefix=${PREFIX}\
             --host=$HOST \
